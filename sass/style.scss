@@ -1,0 +1,57 @@
+$siteBlue: #0C76BC;
+
+
+
+body {
+  font-size: 14px;
+}
+
+//Added in to do the site footer.
+.site {
+  display: flex;
+  min-height: 80vh;
+  flex-direction: column;
+}
+
+/** Page Layout **/
+
+footer{
+  background-color: slategray;
+  height: 20vh;
+}
+
+.container{
+  margin: 0 auto;
+  width: 80%;
+  flex: 2;
+}
+
+/** Navigation Layout **/
+nav{
+
+  border-bottom: solid black 1px;
+  padding-bottom: 1.5em;
+
+    ul{
+      float: right;
+    }
+    li{
+      display: inline;
+      padding: 0 2em 0 0;
+    }
+}
+
+/**  Footer Layout **/
+.navigation, .links, .github, .twitter{
+  width: 25%;
+  text-align: center;
+  float: left;
+}
+
+.fa-3{
+  font-size: 3em;
+
+    &:hover{
+      color:$siteBlue;
+    }
+}
