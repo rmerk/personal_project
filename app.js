@@ -8,8 +8,8 @@ var mongoose = require('mongoose');
 var sass = require('node-sass');
 var sassMiddleware = require('node-sass-middleware')
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var register = require('./routes/register');
+var blogposts = require('./routes/blogposts');
 
 //requires for login
 var passport = require('passport');
@@ -18,7 +18,6 @@ var localStrat = require('passport-local').Strategy;
 
 //require for models
 var User = require('./models/user');
-var BlogPosts = require('./models/blogschema');
 
 var app = express();
 
@@ -96,8 +95,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes
 app.use('/', routes);
-app.use('/users', users);
 app.use('/register', register);
+app.use('/blogPosts', blogposts);
 
 
 // catch 404 and forward to error handler

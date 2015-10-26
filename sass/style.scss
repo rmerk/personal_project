@@ -1,30 +1,28 @@
+//Site wide SASS Settings
 $siteBlue: #0C76BC;
 
+/************ Site Layout *****************/
 
-
-body {
+html, body {
   font-size: 14px;
+  height: 100%;
+  background:url('/images/farmer.png');
+  background-repeat:repeat;
 }
 
-//Added in to do the site footer.
-.site {
-  display: flex;
-  min-height: 80vh;
-  flex-direction: column;
+#wrapper{
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -15em;
+  /* Pad bottom by footer height */
+  padding: 0 0 15em;
 }
 
-/** Page Layout **/
-
-footer{
-  background-color: slategray;
-  height: 20vh;
+section{
+  margin: 5em 0 7em 0;
 }
 
-.container{
-  margin: 0 auto;
-  width: 80%;
-  flex: 2;
-}
 
 /** Navigation Layout **/
 nav{
@@ -32,26 +30,104 @@ nav{
   border-bottom: solid black 1px;
   padding-bottom: 1.5em;
 
-    ul{
-      float: right;
-    }
-    li{
-      display: inline;
-      padding: 0 2em 0 0;
-    }
+  //floats nav icons right
+  .nav{
+    float: right;
+  }
 }
 
-/**  Footer Layout **/
+//Pushes icons inline
+.nav > li{
+  display: inline-block;
+}
+
+/** Navigation Icons **/
+.fa-3{
+  font-size: 3em;
+
+  &:hover{
+    color:$siteBlue;
+  }
+}
+
+/** Footer Layout **/
+footer {
+  background:url('/images/dark_dotted.png');
+  background-repeat:repeat;
+  height: 15em;
+  color: white;
+}
+
+
+/**  Footer Div Layout **/
 .navigation, .links, .github, .twitter{
   width: 25%;
   text-align: center;
   float: left;
 }
 
-.fa-3{
-  font-size: 3em;
 
-    &:hover{
-      color:$siteBlue;
-    }
+/*************** Page Specific Layouts *******************/
+
+//** Front Page **/
+.top5Posts{
+  margin: 2em 0 3em 0;
+  overflow: hidden;
+}
+
+a.linkToArchives{
+  float: right;
+}
+
+.fa-4{
+  font-size: 1.5em;
+  margin: 1.5em 0 0 0;
+
+  &:hover{
+    color:$siteBlue;
+  }
+}
+
+li.posts{
+  list-style-type: none;
+  border-bottom: groove 1px;
+  line-height: 2.5em;
+}
+
+p.title{
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+p.description{
+  font-size: 1.12em;
+  font-weight: bold;
+}
+p.created{
+  font-size: .75em;
+}
+
+/** Admin Page **/
+
+h2.title{
+  font-siz: 30px;
+}
+
+.formContainer{
+  width: 75%;
+  margin: 0 auto;
+  border: groove 1px;
+  padding: 5%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+form{
+  overflow: hidden;
+}
+
+//Form submit button
+button.md-raised.md-button.md-ink-ripple{
+  color: black;
+  background-color: lightgreen;
+  float: right;
+  margin: 20px 0 0 0;
 }

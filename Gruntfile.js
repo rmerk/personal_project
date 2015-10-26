@@ -32,10 +32,19 @@ module.exports = function(grunt) {
                     "angular-route/angular-route.min.js.map",
                     "angular-aria/angular-aria.min.js",
                     "angular-aria/angular-aria.min.js.map",
+                    "angular-ui-tinymce/src/tinymce.js",
+                    "tinymce/tinymce.js",
+                    "tinymce/themes/modern/theme.min.js",
+                    "tinymce/skins/custom/content.min.css",
+                    "tinymce/skins/custom/skin.min.css",
+                    "tinymce/skins/custom/fonts/tinymce.woff",
+                    "tinymce/skins/custom/fonts/tinymce.ttf",
+                    "tinymce/skins/custom/img",
                     "font-awesome/css/font-awesome.min.css",
                     "font-awesome/fonts/fontawesome-webfont.tff",
                     "font-awesome/fonts/fontawesome-webfont.woff2",
-                    "jquery/dist/jquery.min.js"
+                    "jquery/dist/jquery.min.js",
+                    "bootstrap/dist/css/bootstrap.min.css"
 
 
                 ],

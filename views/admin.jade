@@ -1,5 +1,14 @@
-//
-   Created by m3rkz0r on 10/20/15.
+extends layout
 
 block content
-   .container
+    h2.text-center Let your thoughts flow!
+    section
+        div.formContainer
+            form(method="post")
+                md-input-container
+                    input(type='text' name='title' placeholder='Title' ng-model='title')
+                md-input-container
+                    input(type='text' name='description' placeholder='Description' ng-model='description')
+                textarea(name='content' id='contentTextArea' ui-tinymce='tinymceOptions' ng-model='content' placeholder='Enter an interesting story!')
+                md-button.md-raised(type='submit' ng-click='addPost()').
+                    Submit

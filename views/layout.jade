@@ -8,45 +8,48 @@ html(ng-app="myApp")
     script(src="/vendor/angular-material/angular-material.min.js")
     script(src="/vendor/angular-aria/angular-aria.min.js")
     script(src="/vendor/angular-animate/angular-animate.min.js")
+    script(src="/vendor/tinymce/tinymce.js")
+    script(src="/vendor/tinymce/themes/modern/theme.min.js")
+    script(src="/vendor/angular-ui-tinymce/src/tinymce.js")
     script(src="/javascripts/client.js")
-    script(src="/javascripts/AboutController.js")
-    script(src="/javascripts/ArchivesController.js")
-    script(src="/javascripts/RegisterController.js")
 
     link(rel='stylesheet', href='/vendor/angular-material/angular-material.min.css')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/vendor/tinymce/skins/custom/content.min.css')
+    link(rel='stylesheet', href='/vendor/tinymce/skins/custom/skin.min.css')
+    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-    base(href="/")
+  body.site(ng-controller="MainController")
+    #wrapper
+            .container
+                nav
+                    img.logo(src="/images/logo.png")
+                    ul.nav
+                        block nav
+                        li
+                          a(href="/")
+                            i.fa.fa-home.fa-3
+                        li
+                          a(href="/archives")
+                            i.fa.fa-archive.fa-3
+                        li
+                          a(href="/about")
+                            i.fa.fa-info.fa-3
+                        li
+                          a(href="/portfolio")
+                            i.fa.fa-folder-open.fa-3
 
-  body.site
-    .container
-        nav
-            img.logo(src="/images/logo.png")
-            ul.nav
-                li
-                  a(href="/")
-                    i.fa.fa-home.fa-3
-                li
-                  a(href="/archives")
-                    i.fa.fa-archive.fa-3
-                li
-                  a(href="/about")
-                    i.fa.fa-info.fa-3
-                li
-                  a(href="/register")
-                    i.fa.fa-folder-open.fa-3
+                block content
 
-        block content
-        div(ng-view)
 
-    block footer
-    footer
-        div.navigation
-          h4 Navigation
-        div.links
-          h4 Links
-        div.github
-          h4 Github Feed
-        div.twitter
-          h4 Twitter Feed
+        block footer
+        footer
+            div.navigation
+              h4 Navigation
+            div.links
+              h4 Links
+            div.github
+              h4 Github Feed
+            div.twitter
+              h4 Twitter Feed

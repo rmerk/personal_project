@@ -1,30 +1,65 @@
 /**
  * Created by m3rkz0r on 10/20/15.
  */
-var app = angular.module('myApp',['ngRoute']);
 
-app.config(function($routeProvider, $locationProvider){
-    $routeProvider
-        .when('/about',{
-            templateUrl: '/about',
-            controller: 'AboutController'
-        })
-        .when('/archives',{
-            templateUrl: '/archives',
-            controller: 'ArchivesController'
-        })
-        .when('/register',{
-            templateUrl: '/register',
-            controller: 'RegisterController'
-        })
-        .when('/login',{
-            templateUrl: '/login'
-        })
-        .when('/profile',{
-            templateUrl: '/profile',
+
+var myApp = angular.module('myApp',['ngMaterial', 'ui.tinymce']);
+
+myApp.controller('MainController',['$scope','$http', function($scope, $http) {
+
+    $scope.tinymceOptions = {
+        height: 400,
+        resize: true,
+        skin: "custom"
+    };
+
+    //Postlist stores my blog values
+    $scope.postlist = [];
+    //Stores my selected post by id
+    $scope.postById = [];
+
+    //adds a post to the database
+    $scope.addPost = function(){
+        var postData = {
+            title : $scope.title,
+            description : $scope.description,
+            content : $scope.content
+        };
+
+        $http.post('/blogposts/addPost', postData).then(function(res){
+            $scope.getPosts();
+            $scope.title = null;
+            $scope.description = null;
+            $scope.content = null;
         });
 
-    $locationProvider.html5Mode(true);
-});
+        console.log(postData);
+    };
 
+    //Grabs all posts in the database
+    $scope.getPosts = function(){
+
+        $http({
+            url: 'blogposts/getPosts',
+            method: 'GET'
+        }).then(function(res){
+            $scope.postlist = res.data;
+            console.log($scope.postlist);
+        });
+    };
+
+    //Grab post by id
+    $scope.getPostById = function(){
+        $http.get('blogposts/getPostById')
+            .then(function(res){
+                $scope.postById = res.data;
+                console.log($scope.postById);
+            });
+    };
+
+    //calling getPosts() so blog posts load off the bat.
+    $scope.getPosts();
+
+
+}]);
 
