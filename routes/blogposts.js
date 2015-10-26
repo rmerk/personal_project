@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var blogschema = require('../models/blogschema.js');
+var blogschema = require('../models/blogschema');
 
 router.get('/getPosts', function(req,res,next){
    blogschema.find({}, function(err, blogposts){
@@ -10,9 +10,11 @@ router.get('/getPosts', function(req,res,next){
 });
 
 router.get('/getPostById/:id', function(req,res,next){
-   blogschema.find({_id:req.params.id}, function(err, blogposts){
+   console.log("Params" + req.params.id);
+   blogschema.findOne({_id:req.params.id}, function(err, blogpost){
       if(err) throw err;
-      res.json(blogposts);
+      console.log("Swwwwwwwweeeeeeet" + blogpost.title);
+      res.render('blogpost', {title: blogpost.title, author: blogpost.creator, date: blogpost.date, content: blogpost.content});
    });
 });
 

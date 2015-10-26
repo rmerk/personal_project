@@ -40,21 +40,12 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
     $scope.getPosts = function(){
 
         $http({
-            url: 'blogposts/getPosts',
+            url: '/blogposts/getPosts',
             method: 'GET'
         }).then(function(res){
             $scope.postlist = res.data;
             console.log($scope.postlist);
         });
-    };
-
-    //Grab post by id
-    $scope.getPostById = function(){
-        $http.get('blogposts/getPostById')
-            .then(function(res){
-                $scope.postById = res.data;
-                console.log($scope.postById);
-            });
     };
 
     //calling getPosts() so blog posts load off the bat.

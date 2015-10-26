@@ -8,10 +8,11 @@ block nav
 block content
     div.top5Posts
         ul(ng-repeat='post in postlist')
-            li.posts
-                p.title {{post.title}}
-                p.description {{post.description}}
-                p.created {{post.created | date:'fullDate'}}
+            a(ng-href='/blogPosts/getPostById/{{post._id}}')
+                li.posts
+                    p.title {{post.title}}
+                    p.description {{post.description}}
+                    p.created {{post.created | date:'fullDate'}}
 
         a.linkToArchives(href="/archives")
             i.fa.fa-long-arrow-right.fa-4.

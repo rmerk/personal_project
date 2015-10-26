@@ -70,6 +70,10 @@ footer {
 /*************** Page Specific Layouts *******************/
 
 //** Front Page **/
+a:-webkit-any-link{
+  text-decoration: none;
+}
+
 .top5Posts{
   margin: 2em 0 3em 0;
   overflow: hidden;
