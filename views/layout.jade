@@ -18,6 +18,7 @@ html(ng-app="myApp")
     link(rel='stylesheet', href='/vendor/tinymce/skins/custom/content.min.css')
     link(rel='stylesheet', href='/vendor/tinymce/skins/custom/skin.min.css')
     link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/vendor/octicons/octicons.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body.site(ng-controller="MainController")
@@ -28,28 +29,93 @@ html(ng-app="myApp")
                     ul.nav
                         block nav
                         li
-                          a(href="/")
-                            i.fa.fa-home.fa-3
+                            a(href="/")
+                                i.fa.fa-home.fa-3
                         li
-                          a(href="/archives")
-                            i.fa.fa-archive.fa-3
+                            a(href="/archives")
+                                i.fa.fa-archive.fa-3
                         li
-                          a(href="/about")
-                            i.fa.fa-info.fa-3
+                            a(href="/about")
+                                i.fa.fa-info.fa-3
                         li
-                          a(href="/portfolio")
-                            i.fa.fa-folder-open.fa-3
+                            a(href="/portfolio")
+                                i.fa.fa-folder-open.fa-3
+                        li
+                            md-menu-bar
+                                md-menu
+                                    a(href="" ng-click='$mdOpenMenu()')
+                                        i.fa.fa-sign-in.fa-3
+                                    md-menu-content.loginDropdown
+                                        md-menu-item
+                                            form(method="POST" action="/")
+                                                md-input-container
+                                                    label(for="username").
+                                                        Username:
+                                                    input(type="text" name="username" id="username")
+                                                md-input-container
+                                                    label(for="password").
+                                                        Password:
+                                                    input(type="password" name="password" id="password")
+                                                md-button.md-raised(type="submit").
+                                                    Login
+                        li
+                            a(href="/logout")
+                                i.fa.fa-sign-out.fa-3
+
 
                 block content
 
 
+
         block footer
-        footer
+        footer(ng-controller='ApiController')
             div.navigation
               h4 Navigation
+              div.footerNav
+                  div.footerLink
+                      a(href="/")
+                          i.fa.fa-home.fa-3
+                  div.footerLink
+                      a(href="/archives")
+                          i.fa.fa-archive.fa-3
+                  div.footerLink
+                      a(href="/about")
+                          i.fa.fa-info.fa-3
+                  div.footerLink
+                      a(href="/portfolio")
+                          i.fa.fa-folder-open.fa-3
             div.links
               h4 Links
             div.github
               h4 Github Feed
+              div(ng-repeat='repo in repoData | limitTo:3').githubFeed
+                div.col-md-9
+                    span(ng-if='repo.fork').octicon.octicon-repo-forked
+                    span(ng-if='!repo.fork').octicon.octicon-repo
+                    span.repoText
+                        a(href='{{repo.html_url}}' target='_blank').
+                            {{repo.name}}
+                        p {{repo.description}}
+                div.col-md-3
+                    dl
+                        dt Last Updated:
+                        dt {{repo.updated_at | date : short : timezone}}
+
+
             div.twitter
-              h4 Twitter Feed
+              h4 Social Media
+              div.socialIcons
+                  div.footerLogo
+                    img.logo(src="/images/footerLogo.png")
+                  span.footerIcon
+                      a(href="https://plus.google.com/115796745048353710492/about")
+                          i.fa.fa-google-plus-square.fa-3
+                      p Google
+                  span.footerIcon
+                      a(href="https://www.linkedin.com/in/rmerchlewitz")
+                          i.fa.fa-linkedin-square.fa-3
+                      p LinkedIn
+                  span.footerIcon
+                      a(href="https://twitter.com/merkedyou")
+                          i.fa.fa-twitter-square.fa-3
+                      p Twitter

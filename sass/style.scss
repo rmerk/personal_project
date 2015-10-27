@@ -1,6 +1,17 @@
 //Site wide SASS Settings
 $siteBlue: #0C76BC;
 
+//Custom Font
+@font-face {
+  font-family: droidFont;
+  src: url(/fonts/droid-sans/DroidSans.ttf);
+}
+
+@font-face {
+  font-family: droidFontBold;
+  src: url(/fonts/droid-sans/DroidSans-Bold.ttf);
+}
+
 /************ Site Layout *****************/
 
 html, body {
@@ -8,15 +19,16 @@ html, body {
   height: 100%;
   background:url('/images/farmer.png');
   background-repeat:repeat;
+  font-family: droidFont;
 }
 
 #wrapper{
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -15em;
+  margin: 0 auto -20em;
   /* Pad bottom by footer height */
-  padding: 0 0 15em;
+  padding: 0 0 20em;
 }
 
 section{
@@ -25,6 +37,14 @@ section{
 
 
 /** Navigation Layout **/
+.md-open-menu-container.md-whiteframe-z2.md-active.md-clickable{
+  height: 234px;
+}
+
+.loginDropdown{
+  height: 234px;
+}
+
 nav{
 
   border-bottom: solid black 1px;
@@ -54,10 +74,53 @@ nav{
 footer {
   background:url('/images/dark_dotted.png');
   background-repeat:repeat;
-  height: 15em;
+  height: 20em;
   color: white;
 }
 
+
+footer .socialIcons .fa-3{
+  font-size: 4em;
+
+    &:hover{
+      color: white;
+    }
+}
+
+//adds left margin to footernav text
+.footerNav{
+  text-align: left;
+  padding: 0 0 0 2em;
+}
+
+.footerLink{
+  margin: 1em 0 0 0;
+}
+
+span.footerIcon{
+  display: inline-block;
+  padding: 0 1em;
+  margin: 2em 0 0 0;
+}
+
+//moves github content text left
+.githubFeed{
+  text-align: left;
+}
+
+//adjusts the top margin above github links
+.footerLogo{
+  margin: 2em 0 0 0;
+}
+
+// adjusts the generated p description.
+.repoText p.ng-binding{
+  padding: 0 0 0 1.2em;
+}
+//changes the repo title padding
+.repoText{
+  padding: 0 0 0 .5em;
+}
 
 /**  Footer Div Layout **/
 .navigation, .links, .github, .twitter{
@@ -74,15 +137,18 @@ a:-webkit-any-link{
   text-decoration: none;
 }
 
+//Sets the margins for the top 5 blog posts content
 .top5Posts{
   margin: 2em 0 3em 0;
   overflow: hidden;
 }
 
+//adjusts menu to right side
 a.linkToArchives{
   float: right;
 }
 
+//makes login icons bigger
 .fa-4{
   font-size: 1.5em;
   margin: 1.5em 0 0 0;
@@ -98,6 +164,7 @@ li.posts{
   line-height: 2.5em;
 }
 
+//P tags set the size for the blog headings
 p.title{
   font-size: 1.5em;
   font-weight: bolder;
@@ -134,4 +201,14 @@ button.md-raised.md-button.md-ink-ripple{
   background-color: lightgreen;
   float: right;
   margin: 20px 0 0 0;
+}
+
+//** Generated Blog Page **
+.renderedPost{
+  padding: 1em 1em 3em 1em;
+}
+
+//adds a top margin to the blog content for even spacing
+.renderedContent{
+  margin: 2em 0 0 0;
 }

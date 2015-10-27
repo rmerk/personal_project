@@ -1,12 +1,11 @@
 /**
  * Created by m3rkz0r on 10/20/15.
  */
-
-
 var myApp = angular.module('myApp',['ngMaterial', 'ui.tinymce']);
 
 myApp.controller('MainController',['$scope','$http', function($scope, $http) {
 
+    //These set the values for my tiny mce editor
     $scope.tinymceOptions = {
         height: 400,
         resize: true,
@@ -15,8 +14,6 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
 
     //Postlist stores my blog values
     $scope.postlist = [];
-    //Stores my selected post by id
-    $scope.postById = [];
 
     //adds a post to the database
     $scope.addPost = function(){
@@ -51,6 +48,28 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
     //calling getPosts() so blog posts load off the bat.
     $scope.getPosts();
 
+
+}]);
+
+
+
+myApp.controller('ApiController', ['$scope', '$http', function($scope, $http){
+
+    /***************** Github API Calls ********************/
+    $scope.username = 'rmerk';
+
+    $http.get("https://api.github.com/users/" + $scope.username)
+        .success(function (data) {
+            $scope.userData = data;
+            loadRepos();
+        });
+
+    var loadRepos = function () {
+        $http.get($scope.userData.repos_url + "?sort=created")
+            .success(function (data) {
+                $scope.repoData = data;
+            });
+    };
 
 }]);
 

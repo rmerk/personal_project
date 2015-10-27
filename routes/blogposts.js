@@ -10,11 +10,9 @@ router.get('/getPosts', function(req,res,next){
 });
 
 router.get('/getPostById/:id', function(req,res,next){
-   console.log("Params" + req.params.id);
    blogschema.findOne({_id:req.params.id}, function(err, blogpost){
       if(err) throw err;
-      console.log("Swwwwwwwweeeeeeet" + blogpost.title);
-      res.render('blogpost', {title: blogpost.title, author: blogpost.creator, date: blogpost.date, content: blogpost.content});
+      res.render('blogpost', {title: blogpost.title, author: blogpost.creator, created: blogpost.created, content: blogpost.content});
    });
 });
 
@@ -28,7 +26,6 @@ router.post('/addPost', function(req,res,next){
    blogpost.save(function(){
       res.send(200);
    });
-   console.log('created');
 
 });
 

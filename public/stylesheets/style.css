@@ -1,22 +1,35 @@
+@font-face {
+  font-family: droidFont;
+  src: url(/fonts/droid-sans/DroidSans.ttf); }
+@font-face {
+  font-family: droidFontBold;
+  src: url(/fonts/droid-sans/DroidSans-Bold.ttf); }
 /************ Site Layout *****************/
 html, body {
   font-size: 14px;
   height: 100%;
   background: url("/images/farmer.png");
-  background-repeat: repeat; }
+  background-repeat: repeat;
+  font-family: droidFont; }
 
 #wrapper {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -15em;
+  margin: 0 auto -20em;
   /* Pad bottom by footer height */
-  padding: 0 0 15em; }
+  padding: 0 0 20em; }
 
 section {
   margin: 5em 0 7em 0; }
 
 /** Navigation Layout **/
+.md-open-menu-container.md-whiteframe-z2.md-active.md-clickable {
+  height: 234px; }
+
+.loginDropdown {
+  height: 234px; }
+
 nav {
   border-bottom: solid black 1px;
   padding-bottom: 1.5em; }
@@ -36,8 +49,37 @@ nav {
 footer {
   background: url("/images/dark_dotted.png");
   background-repeat: repeat;
-  height: 15em;
+  height: 20em;
   color: white; }
+
+footer .socialIcons .fa-3 {
+  font-size: 4em; }
+  footer .socialIcons .fa-3:hover {
+    color: white; }
+
+.footerNav {
+  text-align: left;
+  padding: 0 0 0 2em; }
+
+.footerLink {
+  margin: 1em 0 0 0; }
+
+span.footerIcon {
+  display: inline-block;
+  padding: 0 1em;
+  margin: 2em 0 0 0; }
+
+.githubFeed {
+  text-align: left; }
+
+.footerLogo {
+  margin: 2em 0 0 0; }
+
+.repoText p.ng-binding {
+  padding: 0 0 0 1.2em; }
+
+.repoText {
+  padding: 0 0 0 .5em; }
 
 /**  Footer Div Layout **/
 .navigation, .links, .github, .twitter {
@@ -97,5 +139,11 @@ button.md-raised.md-button.md-ink-ripple {
   background-color: lightgreen;
   float: right;
   margin: 20px 0 0 0; }
+
+.renderedPost {
+  padding: 1em 1em 3em 1em; }
+
+.renderedContent {
+  margin: 2em 0 0 0; }
 
 /*# sourceMappingURL=style.css.map */

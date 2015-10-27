@@ -16,7 +16,7 @@ router.get('/admin', isLoggedIn, function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Ryan Merchlewitz Home Page' });
+  res.render('index', { message: req.flash('loginMessage'), title: 'Ryan Merchlewitz Home Page' });
 });
 
 router.get('/archives', function(req, res, next) {
@@ -27,18 +27,20 @@ router.get('/about', function(req, res, next) {
     res.render('about', { title: 'Ryan Merchlewitz About Page' });
 });
 
-router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Ryan Merchlewitz Login Page' });
-});
-
 router.get('/portfolio', function(req, res, next) {
     res.render('portfolio', { title: 'Ryan Merchlewitz Portfolio Page' });
+});
+
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
 });
 
 router.post('/',
     passport.authenticate('local',{
         successRedirect: '/admin',
-        failureRedirect: '/login'
+        failureRedirect: '/',
+        failureFlash : true
     })
 );
 

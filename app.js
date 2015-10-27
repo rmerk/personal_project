@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var sass = require('node-sass');
-var sassMiddleware = require('node-sass-middleware')
+var sassMiddleware = require('node-sass-middleware');
+var flash = require('connect-flash');
 var routes = require('./routes/index');
 var register = require('./routes/register');
 var blogposts = require('./routes/blogposts');
@@ -49,6 +50,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -69,7 +71,7 @@ passport.use('local', new localStrat({
         User.findOne({ username: username}, function(err, user) {
             if (err) throw err;
             if (!user)
-                return done(null, false, {message: 'Incorrect username and password.'});
+                return done(null, false, req.flash('loginMessage', 'Incorrect username and password.'));
 
             // test a matching password
             user.comparePassword(password, function(err, isMatch) {
@@ -77,7 +79,7 @@ passport.use('local', new localStrat({
                 if(isMatch)
                     return done(null, user);
                 else
-                    done(null, false, { message: 'Incorrect username and password.' });
+                    done(null, false, req.flash('loginMessage', 'Incorrect username and password.'));
             });
         });
     }));
