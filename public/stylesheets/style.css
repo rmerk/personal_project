@@ -221,4 +221,15 @@ button.md-raised.md-button.md-ink-ripple {
 .renderedContent {
   margin: 2em 0 0 0; }
 
+#face {
+  text-align: center; }
+
+.face {
+  width: 100%;
+  -webkit-border-radius: 250px;
+  border-radius: 250px; }
+
+.md-toolbar-tools {
+  background: #0C76BC; }
+
 /*# sourceMappingURL=style.css.map */
