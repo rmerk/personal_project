@@ -13,7 +13,10 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
     };
 
     //Postlist stores my blog values
-    $scope.postlist = [];
+    $scope.postlist = []
+
+    //Archives List
+    $scope.archives = [];
 
     //adds a post to the database
     $scope.addPost = function(){
@@ -36,17 +39,24 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
     //Grabs all posts in the database
     $scope.getPosts = function(){
 
-        $http({
-            url: '/blogposts/getPosts',
-            method: 'GET'
-        }).then(function(res){
-            $scope.postlist = res.data;
-            console.log($scope.postlist);
-        });
+        $http.get('/blogposts/getPosts')
+            .then(function(res){
+                $scope.postlist = res.data;
+            });
+    };
+
+    //Grabs the posts for archives, skips first 5 posts.
+    $scope.getArchives = function(){
+        $http.get('/blogposts/getArchives')
+            .then(function(res){
+                $scope.archives = res.data;
+            })
+
     };
 
     //calling getPosts() so blog posts load off the bat.
     $scope.getPosts();
+    $scope.getArchives();
 
 
 }]);

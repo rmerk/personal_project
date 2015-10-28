@@ -9,6 +9,13 @@ router.get('/getPosts', function(req,res,next){
    });
 });
 
+router.get('/getArchives', function(req,res,next){
+   blogschema.find({}, function(err, blogposts){
+      if(err) throw err;
+      res.json(blogposts);
+   }).skip(5);
+});
+
 router.get('/getPostById/:id', function(req,res,next){
    blogschema.findOne({_id:req.params.id}, function(err, blogpost){
       if(err) throw err;

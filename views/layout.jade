@@ -36,7 +36,7 @@ html(ng-app="myApp")
                                 i.fa.fa-archive.fa-3
                         li
                             a(href="/about")
-                                i.fa.fa-info.fa-3
+                                i.fa.fa-info-circle.fa-3
                         li
                             a(href="/portfolio")
                                 i.fa.fa-folder-open.fa-3
@@ -84,7 +84,7 @@ html(ng-app="myApp")
                             span.footerLinkHome Home
                         div.footerLink
                             a(href="/about")
-                                i.fa.fa-info.fa-3#aboutFooter
+                                i.fa.fa-info-circle.fa-3#aboutFooter
                             span.footerLinkAbout About
 
                     div.col-md-12#bottom
@@ -118,14 +118,14 @@ html(ng-app="myApp")
                   span.footerHeading Github Feed
 
                 div(ng-repeat='repo in repoData | limitTo:3').githubFeed
-                    div.col-md-9
+                    div.col-md-8
                         span(ng-if='repo.fork').octicon.octicon-repo-forked
                         span(ng-if='!repo.fork').octicon.octicon-repo
                         span.repoText
                             a(href='{{repo.html_url}}' target='_blank').
                                 {{repo.name}}
                             p {{repo.description}}
-                    div.col-md-3
+                    div.col-md-4
                         dl
                             dt Last Updated:
                             dt {{repo.updated_at | date : short : timezone}}

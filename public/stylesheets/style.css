@@ -16,9 +16,9 @@ html, body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -20em;
+  margin: 0 auto -23em;
   /* Pad bottom by footer height */
-  padding: 0 0 20em; }
+  padding: 0 0 23em; }
 
 section {
   margin: 5em 0 7em 0; }
@@ -34,16 +34,16 @@ nav {
   border-bottom: solid black 1px;
   padding-bottom: 1.5em; }
   nav .navIcons {
-    float: right; }
+    float: right;
+    margin: 1em 0 0 0; }
+    nav .navIcons .fa-3:hover {
+      color: #3f3f40; }
 
 .navIcons > li {
   display: inline-block;
   padding: 0 .5em 0 .5em; }
 
 /** Navigation Icons **/
-#top, #bottom {
-  padding: 0 0 0 3em; }
-
 #top {
   margin: -1em 0 0 0; }
 
@@ -59,7 +59,7 @@ nav {
 footer {
   background: url("/images/dark_dotted.png");
   background-repeat: repeat;
-  height: 20em;
+  height: 23em;
   color: white; }
 
 footer .socialIcons .fa-3 {
@@ -68,7 +68,7 @@ footer .socialIcons .fa-3 {
     color: white; }
 
 .socialIcons {
-  margin: 2.3em 0 0 0; }
+  margin: 3em 0 0 0; }
 
 footer .footerNav .fa-3 {
   font-size: 3em; }
@@ -78,13 +78,14 @@ footer .footerNav .fa-3 {
 .footerNav {
   margin: 3em 0 0 0;
   text-align: left;
-  padding: 0 0 0 2em; }
+  padding: 0 0 0 1em; }
   .footerNav .col-md-6.top {
     margin: 1.5em 0 0 0; }
 
 .footerLink {
-  margin: 1em 3em 0 0;
-  display: inline-block; }
+  margin: 1em 0 0 0;
+  display: inline-block;
+  padding: 0 0 0 5%; }
   .footerLink i#aboutFooter {
     margin: 0 0 0 .6em; }
 
@@ -130,16 +131,13 @@ i.fa.fa-info.fa-3 {
 .footerLogo {
   margin: 2em 0 0 0; }
 
-.repoText p.ng-binding {
-  padding: 0 0 0 1.2em; }
-
 .repoText {
   padding: 0 0 0 .5em; }
 
 ul.castList {
   font-size: 1.5em;
   list-style-type: none;
-  margin: 1em 0 0 0;
+  margin: 1.5em 0 0 0;
   line-height: 2em;
   font-family: droidFontBold; }
   ul.castList a:hover {
@@ -164,9 +162,15 @@ a:-webkit-any-link {
 .top5Posts {
   margin: 2em 0 3em 0;
   overflow: hidden; }
+  .top5Posts a {
+    color: #3f3f40; }
+  .top5Posts a:hover {
+    color: #0C76BC; }
 
 a.linkToArchives {
   float: right; }
+  a.linkToArchives i {
+    text-decoration: underline; }
 
 .fa-4 {
   font-size: 1.5em;

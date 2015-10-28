@@ -1,6 +1,10 @@
 extends layout
 
 block content
-    p some text
-    h1 Hey!
-    p {{message}}
+    div.top5Posts
+        ul(ng-repeat='post in archives | limitTo:10')
+            a(ng-href='/blogPosts/getPostById/{{post._id}}')
+                li.posts
+                    p.title {{post.title}}
+                    p.description {{post.description}}
+                    p.created {{post.created | date:'fullDate'}}
