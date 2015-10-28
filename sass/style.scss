@@ -51,17 +51,30 @@ nav{
   padding-bottom: 1.5em;
 
   //floats nav icons right
-  .nav{
+  .navIcons{
     float: right;
   }
 }
 
 //Pushes icons inline
-.nav > li{
+.navIcons > li{
   display: inline-block;
+  padding: 0 .5em 0 .5em;
 }
 
 /** Navigation Icons **/
+#top, #bottom{
+  padding: 0 0 0 3em;
+}
+
+#top{
+  margin: -1em 0 0 0;
+}
+
+#bottom{
+  margin: 2em 0 0 0;
+}
+
 .fa-3{
   font-size: 3em;
 
@@ -78,7 +91,7 @@ footer {
   color: white;
 }
 
-
+//changing social icons to be bigger with white hover
 footer .socialIcons .fa-3{
   font-size: 4em;
 
@@ -87,14 +100,35 @@ footer .socialIcons .fa-3{
     }
 }
 
+.socialIcons{
+  margin: 2.3em 0 0 0;
+}
+
+footer .footerNav .fa-3{
+  font-size: 3em;
+
+  &:hover{
+    color: white;
+  }
+}
 //adds left margin to footernav text
 .footerNav{
+  margin: 3em 0 0 0;
   text-align: left;
   padding: 0 0 0 2em;
+
+  .col-md-6.top{
+    margin: 1.5em 0 0 0;
+  }
 }
 
 .footerLink{
-  margin: 1em 0 0 0;
+  margin: 1em 3em 0 0;
+  display: inline-block;
+
+  i#aboutFooter {
+    margin: 0 0 0 .6em;
+  }
 }
 
 span.footerIcon{
@@ -103,9 +137,50 @@ span.footerIcon{
   margin: 2em 0 0 0;
 }
 
+.footerHeadings{
+  margin: .5em 0 0 0;
+
+  & .fa-3:hover{
+    color: white;
+  }
+}
+
+span.footerHeading{
+  font-size: 18px;
+  font-family: droidFontBold;
+  padding: 0 0 0 .75em;
+}
+
+//getting footer icons to place nice for the nav
+.footerLinkHome, .footerLinkArchives, .footerLinkPortfolio{
+  padding: 0 0 0 1.7em;
+  font-size: 1.5em;
+}
+
+i.fa.fa-headphones.fa-3{
+  -webkit-transform: rotate(328deg);
+  -moz-transform: rotate(328deg);
+  -o-transform: rotate(328deg);
+  writing-mode: lr-tb;
+}
+
+i.fa.fa-info.fa-3 {
+  padding-left: .3em;
+}
+
+.footerLinkAbout{
+  padding: 0 0 0 2.4em;
+  font-size: 1.5em;
+}
+
+.footerLinkPortfolio{
+  padding: 0 0 0 1.5em;
+}
+
 //moves github content text left
 .githubFeed{
   text-align: left;
+  margin: 1.5em 0 0 0;
 }
 
 //adjusts the top margin above github links
@@ -122,12 +197,34 @@ span.footerIcon{
   padding: 0 0 0 .5em;
 }
 
+//Podcast List Style
+ul.castList {
+  font-size: 1.5em;
+  list-style-type: none;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-family: droidFontBold;
+
+  & a:hover{
+    color: white;
+  }
+}
+
 /**  Footer Div Layout **/
-.navigation, .links, .github, .twitter{
+.navigation, .podcasts, .github, .social-media{
   width: 25%;
   text-align: center;
   float: left;
 }
+
+.podcasts{
+  padding: 0 4em 0 0;
+}
+
+footer h4{
+  font-family: droidFontBold;
+}
+
 
 
 /*************** Page Specific Layouts *******************/
@@ -162,6 +259,7 @@ li.posts{
   list-style-type: none;
   border-bottom: groove 1px;
   line-height: 2.5em;
+  font-family: droidFontBold;
 }
 
 //P tags set the size for the blog headings

@@ -33,13 +33,23 @@ section {
 nav {
   border-bottom: solid black 1px;
   padding-bottom: 1.5em; }
-  nav .nav {
+  nav .navIcons {
     float: right; }
 
-.nav > li {
-  display: inline-block; }
+.navIcons > li {
+  display: inline-block;
+  padding: 0 .5em 0 .5em; }
 
 /** Navigation Icons **/
+#top, #bottom {
+  padding: 0 0 0 3em; }
+
+#top {
+  margin: -1em 0 0 0; }
+
+#bottom {
+  margin: 2em 0 0 0; }
+
 .fa-3 {
   font-size: 3em; }
   .fa-3:hover {
@@ -57,20 +67,65 @@ footer .socialIcons .fa-3 {
   footer .socialIcons .fa-3:hover {
     color: white; }
 
+.socialIcons {
+  margin: 2.3em 0 0 0; }
+
+footer .footerNav .fa-3 {
+  font-size: 3em; }
+  footer .footerNav .fa-3:hover {
+    color: white; }
+
 .footerNav {
+  margin: 3em 0 0 0;
   text-align: left;
   padding: 0 0 0 2em; }
+  .footerNav .col-md-6.top {
+    margin: 1.5em 0 0 0; }
 
 .footerLink {
-  margin: 1em 0 0 0; }
+  margin: 1em 3em 0 0;
+  display: inline-block; }
+  .footerLink i#aboutFooter {
+    margin: 0 0 0 .6em; }
 
 span.footerIcon {
   display: inline-block;
   padding: 0 1em;
   margin: 2em 0 0 0; }
 
+.footerHeadings {
+  margin: .5em 0 0 0; }
+  .footerHeadings .fa-3:hover {
+    color: white; }
+
+span.footerHeading {
+  font-size: 18px;
+  font-family: droidFontBold;
+  padding: 0 0 0 .75em; }
+
+.footerLinkHome, .footerLinkArchives, .footerLinkPortfolio {
+  padding: 0 0 0 1.7em;
+  font-size: 1.5em; }
+
+i.fa.fa-headphones.fa-3 {
+  -webkit-transform: rotate(328deg);
+  -moz-transform: rotate(328deg);
+  -o-transform: rotate(328deg);
+  writing-mode: lr-tb; }
+
+i.fa.fa-info.fa-3 {
+  padding-left: .3em; }
+
+.footerLinkAbout {
+  padding: 0 0 0 2.4em;
+  font-size: 1.5em; }
+
+.footerLinkPortfolio {
+  padding: 0 0 0 1.5em; }
+
 .githubFeed {
-  text-align: left; }
+  text-align: left;
+  margin: 1.5em 0 0 0; }
 
 .footerLogo {
   margin: 2em 0 0 0; }
@@ -81,11 +136,26 @@ span.footerIcon {
 .repoText {
   padding: 0 0 0 .5em; }
 
+ul.castList {
+  font-size: 1.5em;
+  list-style-type: none;
+  margin: 1em 0 0 0;
+  line-height: 2em;
+  font-family: droidFontBold; }
+  ul.castList a:hover {
+    color: white; }
+
 /**  Footer Div Layout **/
-.navigation, .links, .github, .twitter {
+.navigation, .podcasts, .github, .social-media {
   width: 25%;
   text-align: center;
   float: left; }
+
+.podcasts {
+  padding: 0 4em 0 0; }
+
+footer h4 {
+  font-family: droidFontBold; }
 
 /*************** Page Specific Layouts *******************/
 a:-webkit-any-link {
@@ -107,7 +177,8 @@ a.linkToArchives {
 li.posts {
   list-style-type: none;
   border-bottom: groove 1px;
-  line-height: 2.5em; }
+  line-height: 2.5em;
+  font-family: droidFontBold; }
 
 p.title {
   font-size: 1.5em;

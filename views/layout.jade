@@ -26,7 +26,7 @@ html(ng-app="myApp")
             .container
                 nav
                     img.logo(src="/images/logo.png")
-                    ul.nav
+                    ul.navIcons
                         block nav
                         li
                             a(href="/")
@@ -69,53 +69,84 @@ html(ng-app="myApp")
 
         block footer
         footer(ng-controller='ApiController')
+
+            //Navigation
             div.navigation
-              h4 Navigation
-              div.footerNav
-                  div.footerLink
-                      a(href="/")
-                          i.fa.fa-home.fa-3
-                  div.footerLink
-                      a(href="/archives")
-                          i.fa.fa-archive.fa-3
-                  div.footerLink
-                      a(href="/about")
-                          i.fa.fa-info.fa-3
-                  div.footerLink
-                      a(href="/portfolio")
-                          i.fa.fa-folder-open.fa-3
-            div.links
-              h4 Links
+                div.footerHeadings
+                  i.fa.fa-sitemap.fa-3
+                  span.footerHeading Navigation
+
+                div.footerNav
+                    div.col-md-12#top
+                        div.footerLink
+                            a(href="/")
+                                i.fa.fa-home.fa-3
+                            span.footerLinkHome Home
+                        div.footerLink
+                            a(href="/about")
+                                i.fa.fa-info.fa-3#aboutFooter
+                            span.footerLinkAbout About
+
+                    div.col-md-12#bottom
+                        div.footerLink
+                            a(href="/portfolio")
+                                i.fa.fa-folder-open.fa-3
+                            span.footerLinkPortfolio Portfolio
+                        div.footerLink
+                            a(href="/archives")
+                                i.fa.fa-archive.fa-3
+                            span.footerLinkArchives Archives
+            //Podcasts
+            div.podcasts
+              div.footerHeadings
+                  i.fa.fa-headphones.fa-3
+                  span.footerHeading Podcasts
+              ul.castList
+                li
+                    a(href='http://www.radiolab.org/series/podcasts/') Radio Lab
+                li
+                    a(href='http://shoptalkshow.com/') Shoptalk Show
+                li
+                    a(href='http://theartofcharm.com/podcast/') Art of Charm
+                li
+                    a(href='http://prairiehome.org/listen/podcast/') Prairie Home Companion
+
+            //Github
             div.github
-              h4 Github Feed
-              div(ng-repeat='repo in repoData | limitTo:3').githubFeed
-                div.col-md-9
-                    span(ng-if='repo.fork').octicon.octicon-repo-forked
-                    span(ng-if='!repo.fork').octicon.octicon-repo
-                    span.repoText
-                        a(href='{{repo.html_url}}' target='_blank').
-                            {{repo.name}}
-                        p {{repo.description}}
-                div.col-md-3
-                    dl
-                        dt Last Updated:
-                        dt {{repo.updated_at | date : short : timezone}}
+                div.footerHeadings
+                  i.fa.fa-github.fa-3
+                  span.footerHeading Github Feed
 
+                div(ng-repeat='repo in repoData | limitTo:3').githubFeed
+                    div.col-md-9
+                        span(ng-if='repo.fork').octicon.octicon-repo-forked
+                        span(ng-if='!repo.fork').octicon.octicon-repo
+                        span.repoText
+                            a(href='{{repo.html_url}}' target='_blank').
+                                {{repo.name}}
+                            p {{repo.description}}
+                    div.col-md-3
+                        dl
+                            dt Last Updated:
+                            dt {{repo.updated_at | date : short : timezone}}
 
-            div.twitter
-              h4 Social Media
-              div.socialIcons
-                  div.footerLogo
-                    img.logo(src="/images/footerLogo.png")
-                  span.footerIcon
-                      a(href="https://plus.google.com/115796745048353710492/about")
-                          i.fa.fa-google-plus-square.fa-3
-                      p Google
-                  span.footerIcon
-                      a(href="https://www.linkedin.com/in/rmerchlewitz")
-                          i.fa.fa-linkedin-square.fa-3
-                      p LinkedIn
-                  span.footerIcon
-                      a(href="https://twitter.com/merkedyou")
-                          i.fa.fa-twitter-square.fa-3
-                      p Twitter
+            //Social Media
+            div.social-media
+                div.footerHeadings
+                  i.fa.fa-users.fa-3
+                  span.footerHeading Social Media
+                div.socialIcons
+                    div.footerLogo
+                        img.logo(src="/images/footerLogo.png")
+                    span.footerIcon
+                        a(href="https://plus.google.com/115796745048353710492/about")
+                            i.fa.fa-google-plus-square.fa-3
+                        p Google
+                    span.footerIcon
+                        a(href="https://www.linkedin.com/in/rmerchlewitz")
+                            i.fa.fa-linkedin-square.fa-3
+                        p LinkedIn
+                    span.footerIcon
+                        a(href="https://twitter.com/merkedyou")
+                            i.fa.fa-twitter-square.fa-3
+                        p Twitter
