@@ -36,6 +36,9 @@ section{
   margin: 5em 0 7em 0;
 }
 
+#pageHeading{
+  margin: 0 0 3% 0;
+}
 
 /** Navigation Layout **/
 .md-open-menu-container.md-whiteframe-z2.md-active.md-clickable{
@@ -324,6 +327,10 @@ button.md-raised.md-button.md-ink-ripple{
 
 //** About Page **
 
+.aboutSection{
+  clear:both;
+}
+
 //face div
 #face{
   text-align:center;
@@ -338,4 +345,18 @@ button.md-raised.md-button.md-ink-ripple{
 
 .md-toolbar-tools{
   background: $siteBlue;
+}
+
+//Adding z-index, so menu appears in-front of content
+.md-open-menu-container{
+  z-index: 10;
+}
+
+.col-md-4{
+  z-index: 1;
+}
+
+//moving the star icon around
+span.mineralContent{
+  padding: 0 0 0 3%;
 }

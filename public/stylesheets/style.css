@@ -23,6 +23,9 @@ html, body {
 section {
   margin: 5em 0 7em 0; }
 
+#pageHeading {
+  margin: 0 0 3% 0; }
+
 /** Navigation Layout **/
 .md-open-menu-container.md-whiteframe-z2.md-active.md-clickable {
   height: 234px; }
@@ -221,6 +224,9 @@ button.md-raised.md-button.md-ink-ripple {
 .renderedContent {
   margin: 2em 0 0 0; }
 
+.aboutSection {
+  clear: both; }
+
 #face {
   text-align: center; }
 
@@ -231,5 +237,14 @@ button.md-raised.md-button.md-ink-ripple {
 
 .md-toolbar-tools {
   background: #0C76BC; }
+
+.md-open-menu-container {
+  z-index: 10; }
+
+.col-md-4 {
+  z-index: 1; }
+
+span.mineralContent {
+  padding: 0 0 0 3%; }
 
 /*# sourceMappingURL=style.css.map */
