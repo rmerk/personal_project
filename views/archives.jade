@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    h1.col-md-12#pageHeading Archives
     div.top5Posts
         ul(ng-repeat='post in archives | limitTo:10')
             a(ng-href='/blogPosts/getPostById/{{post._id}}')

@@ -24,6 +24,11 @@ section {
   margin: 5em 0 7em 0; }
 
 #pageHeading {
+  margin: 0 0 3% 0;
+  padding: 2% 0 0 0; }
+
+#pageHeading2 {
+  padding: 0 0 0 0;
   margin: 0 0 3% 0; }
 
 /** Navigation Layout **/
@@ -163,15 +168,15 @@ a:-webkit-any-link {
   text-decoration: none; }
 
 .top5Posts {
-  margin: 2em 0 3em 0;
-  overflow: hidden; }
+  margin: 3% 0 3% 0; }
   .top5Posts a {
     color: #3f3f40; }
   .top5Posts a:hover {
     color: #0C76BC; }
 
 a.linkToArchives {
-  float: right; }
+  float: right;
+  margin: 3% 0 5% 0; }
   a.linkToArchives i {
     text-decoration: underline; }
 
@@ -253,5 +258,8 @@ span.mineralContent {
 
 .aboutBottomContent {
   margin: 5% 0 5% 0; }
+
+#portfolioPage {
+  margin: 0 0 5% 0; }
 
 /*# sourceMappingURL=style.css.map */

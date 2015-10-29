@@ -41,6 +41,12 @@ section{
 
 #pageHeading{
   margin: 0 0 3% 0;
+  padding: 2% 0 0 0;
+}
+
+#pageHeading2{
+  padding: 0 0 0 0;
+  margin: 0 0 3% 0;
 }
 
 /** Navigation Layout **/
@@ -241,8 +247,7 @@ a:-webkit-any-link{
 
 //Sets the margins for the top 5 blog posts content
 .top5Posts{
-  margin: 2em 0 3em 0;
-  overflow: hidden;
+  margin: 3% 0 3% 0;
 
   & a{
     color: $siteGray;
@@ -256,6 +261,7 @@ a:-webkit-any-link{
 //adjusts menu to right side
 a.linkToArchives{
   float: right;
+  margin: 3% 0 5% 0;
 
   & i{
     text-decoration: underline;
@@ -371,4 +377,9 @@ span.mineralContent{
 
 .aboutBottomContent{
   margin: 5% 0 5% 0;
+}
+
+//** Portfolio Page **
+#portfolioPage{
+  margin: 0 0 5% 0;
 }
