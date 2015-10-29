@@ -245,6 +245,13 @@ button.md-raised.md-button.md-ink-ripple {
   z-index: 1; }
 
 span.mineralContent {
-  padding: 0 0 0 3%; }
+  padding: 0 0 0 3%;
+  margin: 0 0 10px; }
+
+#strengthsContent {
+  margin: 0 0 5% 0; }
+
+.aboutBottomContent {
+  margin: 5% 0 5% 0; }
 
 /*# sourceMappingURL=style.css.map */

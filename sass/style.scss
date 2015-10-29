@@ -13,6 +13,9 @@ $siteGray: #3f3f40;
   src: url(/fonts/droid-sans/DroidSans-Bold.ttf);
 }
 
+//*********** Site Tage Overides **********/
+
+
 /************ Site Layout *****************/
 
 html, body {
@@ -359,4 +362,13 @@ button.md-raised.md-button.md-ink-ripple{
 //moving the star icon around
 span.mineralContent{
   padding: 0 0 0 3%;
+  margin: 0 0 10px;
+}
+
+#strengthsContent{
+  margin: 0 0 5% 0;
+}
+
+.aboutBottomContent{
+  margin: 5% 0 5% 0;
 }
