@@ -1,7 +1,8 @@
 extends layout
 
 block content
-    h1.col-md-12#pageHeading Archives
+    div.col-md-12#pageHeading
+        h1 Archives
     div.top5Posts
         ul(ng-repeat='post in archives | limitTo:10')
             a(ng-href='/blogPosts/getPostById/{{post._id}}')
@@ -9,3 +10,4 @@ block content
                     p.title {{post.title}}
                     p.description {{post.description}}
                     p.created {{post.created | date:'fullDate'}}
+    div.col-md-12#pageHeading

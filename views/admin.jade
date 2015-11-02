@@ -10,5 +10,5 @@ block content
                 md-input-container
                     input(type='text' name='description' placeholder='Description' ng-model='description')
                 textarea(name='content' id='contentTextArea' ui-tinymce='tinymceOptions' ng-model='content' placeholder='Enter an interesting story!')
-                md-button.md-raised(type='submit' ng-click='addPost()').
+                md-button.md-raised(type='submit' ng-click='addPost(title,description,content)').
                     Submit

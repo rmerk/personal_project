@@ -51,6 +51,18 @@ module.exports = function(grunt) {
                 "dest": "./public/vendor/"
             }
         },
+
+            jade: {
+                compile: {
+                    options: {
+                        pretty: true,
+                    },
+                    files: {
+                        './views/blogpost.html': './views/blogpost.jade'
+                    }
+                }
+            },
+
         sass: {
             dist: {
                 files: {
@@ -62,9 +74,11 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-sass');
 
     // Default task(s).
     grunt.registerTask('default', ['copy', 'sass']);
+    grunt.registerTask('build', 'Convert Jade templates into html templates', ['jade']);
 
 };

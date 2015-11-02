@@ -13,27 +13,26 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
     };
 
     //Postlist stores my blog values
-    $scope.postlist = []
+    $scope.postlist = [];
 
     //Archives List
     $scope.archives = [];
 
     //adds a post to the database
-    $scope.addPost = function(){
+    $scope.addPost = function(title,description,content){
         var postData = {
-            title : $scope.title,
-            description : $scope.description,
-            content : $scope.content
+            title : title,
+            description : description,
+            content : content
         };
 
+
         $http.post('/blogposts/addPost', postData).then(function(res){
-            $scope.getPosts();
             $scope.title = null;
             $scope.description = null;
             $scope.content = null;
+            $scope.getPosts();
         });
-
-        console.log(postData);
     };
 
     //Grabs all posts in the database
@@ -43,6 +42,8 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
             .then(function(res){
                 $scope.postlist = res.data;
             });
+
+
     };
 
     //Grabs the posts for archives, skips first 5 posts.
@@ -54,14 +55,44 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
 
     };
 
+    $scope.grabBlogPost = function(){
+
+        $http.get('blogposts/getPostById/:id')
+            .then(function(res){
+                $scope.blogpost = res.data;
+                console.log($scope.blogpost);
+            });
+    };
+
     //calling getPosts() so blog posts load off the bat.
     $scope.getPosts();
     $scope.getArchives();
 
 
+    //****** Handling User Login *********//
+    $scope.login = function(username,password){
+
+        $scope.hideIcon = false;
+
+        //username and password are the models that are being passed in by index.jade
+        var values = {username: username, password: password};
+
+        $http.post('/login', values)
+            .then(function(response){
+                if(response.data.success){
+                    $scope.hideIcon = true;
+                }
+            });
+    };
+
+    $scope.logout = function(){
+        $http.get('/logout').then(function(){
+            $scope.hideIcon = false;
+        });
+    };
+
+
 }]);
-
-
 
 myApp.controller('ApiController', ['$scope', '$http', function($scope, $http){
 
@@ -75,11 +106,14 @@ myApp.controller('ApiController', ['$scope', '$http', function($scope, $http){
         });
 
     var loadRepos = function () {
-        $http.get($scope.userData.repos_url + "?sort=created")
+        $http.get($scope.userData.repos_url + "?sort=updated")
             .success(function (data) {
                 $scope.repoData = data;
             });
     };
 
 }]);
+
+
+
 

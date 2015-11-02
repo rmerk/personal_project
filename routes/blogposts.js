@@ -6,16 +6,17 @@ router.get('/getPosts', function(req,res,next){
    blogschema.find({}, function(err, blogposts){
       if(err) throw err;
       res.json(blogposts);
-   });
+   }).sort({created: -1});
 });
 
 router.get('/getArchives', function(req,res,next){
    blogschema.find({}, function(err, blogposts){
       if(err) throw err;
       res.json(blogposts);
-   }).skip(5);
+   }).sort({created: -1}).skip(5);
 });
 
+//doesn't work with ngRoute, figure it out
 router.get('/getPostById/:id', function(req,res,next){
    blogschema.findOne({_id:req.params.id}, function(err, blogpost){
       if(err) throw err;
@@ -30,8 +31,9 @@ router.post('/addPost', function(req,res,next){
    blogpost.content = req.body.content;
    blogpost.creator = req.user.username;
 
-   blogpost.save(function(){
-      res.send(200);
+   blogpost.save(function(err,blogpost){
+      if(err) return console.error(err);
+      res.sendStatus(200);
    });
 
 });

@@ -1,30 +1,33 @@
 doctype html
 html(ng-app="myApp")
-  head
-    title= title
+    head
+        title= title
 
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
 
-    script(src="/vendor/angular/angular.min.js")
-    script(src="/vendor/angular-route/angular-route.min.js")
-    script(src="/vendor/angular-material/angular-material.min.js")
-    script(src="/vendor/angular-aria/angular-aria.min.js")
-    script(src="/vendor/angular-animate/angular-animate.min.js")
-    script(src="/vendor/tinymce/tinymce.js")
-    script(src="/vendor/tinymce/themes/modern/theme.min.js")
-    script(src="/vendor/angular-ui-tinymce/src/tinymce.js")
-    script(src="/javascripts/client.js")
+        script(src="/vendor/angular/angular.min.js")
+        script(src="/vendor/angular-route/angular-route.min.js")
+        script(src="/vendor/angular-material/angular-material.min.js")
+        script(src="/vendor/angular-aria/angular-aria.min.js")
+        script(src="/vendor/angular-animate/angular-animate.min.js")
+        script(src="/vendor/tinymce/tinymce.js")
+        script(src="/vendor/tinymce/themes/modern/theme.min.js")
+        script(src="/vendor/angular-ui-tinymce/src/tinymce.js")
 
-    link(rel='stylesheet', href='/vendor/angular-material/angular-material.min.css')
-    link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
-    link(rel='stylesheet', href='/vendor/tinymce/skins/custom/content.min.css')
-    link(rel='stylesheet', href='/vendor/tinymce/skins/custom/skin.min.css')
-    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/vendor/octicons/octicons.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src="/javascripts/client.js")
+        script(src="/javascripts/MainController.js")
 
-  body.site(ng-controller="MainController")
-    #wrapper
+        link(rel='stylesheet', href='/vendor/angular-material/angular-material.min.css')
+        link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/vendor/tinymce/skins/custom/content.min.css')
+        link(rel='stylesheet', href='/vendor/tinymce/skins/custom/skin.min.css')
+        link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/vendor/octicons/octicons.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        base(href="/")
+
+    body.site(ng-controller='MainController')
+        #wrapper
             .container
                 nav
                     img.logo(src="/images/logo.png")
@@ -44,66 +47,61 @@ html(ng-app="myApp")
                                 i.fa.fa-folder-open.fa-3
                         li
                             md-menu-bar
+                                a(href="/admin" ng-show='hideIcon')
+                                    i.fa.fa-pencil-square.fa-3
                                 md-menu
-                                    a(href="" ng-click='$mdOpenMenu()')
+                                    a(href="" ng-click='$mdOpenMenu()' ng-hide='hideIcon')
                                         i.fa.fa-sign-in.fa-3
                                     md-menu-content.loginDropdown
                                         md-menu-item
-                                            form(method="POST" action="/")
+                                            form(method="POST")
                                                 md-input-container
                                                     label(for="username").
                                                         Username:
-                                                    input(type="text" name="username" id="username")
+                                                    input(type="text" name="username" id="username" ng-model="username")
                                                 md-input-container
                                                     label(for="password").
                                                         Password:
-                                                    input(type="password" name="password" id="password")
-                                                md-button.md-raised(type="submit").
+                                                    input(type="password" name="password" id="password" ng-model="password")
+                                                md-button.md-raised(type="submit" ng-click='login(username,password)').
                                                     Login
                         li
-                            a(href="/logout")
+                            a(href="" ng-click="logout()")
                                 i.fa.fa-sign-out.fa-3
-
-
                 block content
 
 
-
-        block footer
-        footer(ng-controller='ApiController')
-
-            //Navigation
-            div.navigation
-                div.footerHeadings
-                  i.fa.fa-sitemap.fa-3
-                  span.footerHeading Navigation
-
-                div.footerNav
-                    div.col-md-12#top
-                        div.footerLink
-                            a(href="/")
-                                i.fa.fa-home.fa-3
-                            span.footerLinkHome Home
-                        div.footerLink
-                            a(href="/about")
-                                i.fa.fa-info-circle.fa-3#aboutFooter
-                            span.footerLinkAbout About
-
-                    div.col-md-12#bottom
-                        div.footerLink
-                            a(href="/portfolio")
-                                i.fa.fa-folder-open.fa-3
-                            span.footerLinkPortfolio Portfolio
-                        div.footerLink
-                            a(href="/archives")
-                                i.fa.fa-archive.fa-3
-                            span.footerLinkArchives Archives
-            //Podcasts
-            div.podcasts
-              div.footerHeadings
-                  i.fa.fa-headphones.fa-3
-                  span.footerHeading Podcasts
-              ul.castList
+    footer(ng-controller='ApiController')
+        //Navigation
+        div.navigation
+            div.footerHeadings
+                i.fa.fa-sitemap.fa-3
+                span.footerHeading Navigation
+            div.footerNav
+                div.col-md-12#top
+                    div.footerLink
+                        a(href="/")
+                            i.fa.fa-home.fa-3
+                        span.footerLinkHome Home
+                    div.footerLink
+                        a(href="/about")
+                            i.fa.fa-info-circle.fa-3#aboutFooter
+                        span.footerLinkAbout About
+                div.col-md-12#bottom
+                    div.footerLink
+                        a(href="/portfolio")
+                            i.fa.fa-folder-open.fa-3
+                        span.footerLinkPortfolio Portfolio
+                    div.footerLink
+                        a(href="/archives")
+                            i.fa.fa-archive.fa-3
+                        span.footerLinkArchives Archives
+        //Podcasts
+        div.podcasts
+            div.footerHeadings
+                i.fa.fa-headphones.fa-3
+                span.footerHeading Podcasts
+            ul.castList
                 li
                     a(href='http://www.radiolab.org/series/podcasts/') Radio Lab
                 li
@@ -112,43 +110,41 @@ html(ng-app="myApp")
                     a(href='http://theartofcharm.com/podcast/') Art of Charm
                 li
                     a(href='http://prairiehome.org/listen/podcast/') Prairie Home Companion
+        //Github
+        div.github
+            div.footerHeadings
+                i.fa.fa-github.fa-3
+                span.footerHeading Github Feed
+            div(ng-repeat='repo in repoData | limitTo:3').githubFeed
+                div.col-md-8
+                    span(ng-if='repo.fork').octicon.octicon-repo-forked
+                    span(ng-if='!repo.fork').octicon.octicon-repo
+                    span.repoText
+                        a(href='{{repo.html_url}}' target='_blank').
+                            {{repo.name}}
+                        p {{repo.description}}
+                div.col-md-4
+                    dl
+                        dt Last Updated:
+                        dt {{repo.updated_at | date : short : timezone}}
+        //Social Media
+        div.social-media
+            div.footerHeadings
+                i.fa.fa-users.fa-3
+                span.footerHeading Social Media
+            div.socialIcons
+                div.footerLogo
+                    img.logo(src="/images/footerLogo.png")
+                span.footerIcon
+                    a(href="https://plus.google.com/115796745048353710492/about" target='_blank')
+                        i.fa.fa-google-plus-square.fa-3
+                    p Google
+                span.footerIcon
+                    a(href="https://www.linkedin.com/in/rmerchlewitz")
+                        i.fa.fa-linkedin-square.fa-3
+                    p LinkedIn
+                span.footerIcon
+                    a(href="https://twitter.com/merkedyou")
+                        i.fa.fa-twitter-square.fa-3
+                    p Twitter
 
-            //Github
-            div.github
-                div.footerHeadings
-                  i.fa.fa-github.fa-3
-                  span.footerHeading Github Feed
-
-                div(ng-repeat='repo in repoData | limitTo:3').githubFeed
-                    div.col-md-8
-                        span(ng-if='repo.fork').octicon.octicon-repo-forked
-                        span(ng-if='!repo.fork').octicon.octicon-repo
-                        span.repoText
-                            a(href='{{repo.html_url}}' target='_blank').
-                                {{repo.name}}
-                            p {{repo.description}}
-                    div.col-md-4
-                        dl
-                            dt Last Updated:
-                            dt {{repo.updated_at | date : short : timezone}}
-
-            //Social Media
-            div.social-media
-                div.footerHeadings
-                  i.fa.fa-users.fa-3
-                  span.footerHeading Social Media
-                div.socialIcons
-                    div.footerLogo
-                        img.logo(src="/images/footerLogo.png")
-                    span.footerIcon
-                        a(href="https://plus.google.com/115796745048353710492/about" target='_blank')
-                            i.fa.fa-google-plus-square.fa-3
-                        p Google
-                    span.footerIcon
-                        a(href="https://www.linkedin.com/in/rmerchlewitz")
-                            i.fa.fa-linkedin-square.fa-3
-                        p LinkedIn
-                    span.footerIcon
-                        a(href="https://twitter.com/merkedyou")
-                            i.fa.fa-twitter-square.fa-3
-                        p Twitter

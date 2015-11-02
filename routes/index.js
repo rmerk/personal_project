@@ -16,7 +16,11 @@ router.get('/admin', isLoggedIn, function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('index', { message: req.flash('loginMessage'), title: 'Ryan Merchlewitz Home Page' });
+  res.render('index', { title: 'Ryan Merchlewitz Home Page' });
+});
+
+router.get('/home', function(req, res, next) {
+    res.render('home', { title: 'Ryan Merchlewitz Home Page' });
 });
 
 router.get('/archives', function(req, res, next) {
@@ -31,18 +35,28 @@ router.get('/portfolio', function(req, res, next) {
     res.render('portfolio', { title: 'Ryan Merchlewitz Portfolio Page' });
 });
 
+
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });
 
-router.post('/',
-    passport.authenticate('local',{
-        successRedirect: '/admin',
-        failureRedirect: '/',
-        failureFlash : true
-    })
-);
+router.post('/login', function(req,res,next){
+    console.log(req.body);
+
+    passport.authenticate('local', function(err, user, info) {
+        if (err) {
+            return next(err); // will generate a 500 error
+        }
+        if (! user) {
+            return res.send({ success : false, message : 'authentication failed' });
+        }
+        req.login(user, function(err) {
+            if (err) { return next(err); }
+            return res.send({ success : true, message : 'authentication succeeded' });
+        });
+    })(req, res, next);
+});
 
 
 // route middleware to make sure a user is logged in

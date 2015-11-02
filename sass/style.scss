@@ -14,7 +14,9 @@ $siteGray: #3f3f40;
 }
 
 //*********** Site Tage Overides **********/
-
+.renderedPost p{
+  color: black !important;
+}
 
 /************ Site Layout *****************/
 
@@ -40,12 +42,6 @@ section{
 }
 
 #pageHeading{
-  margin: 0 0 3% 0;
-  padding: 2% 0 0 0;
-}
-
-#pageHeading2{
-  padding: 0 0 0 0;
   margin: 0 0 3% 0;
 }
 
@@ -247,7 +243,7 @@ a:-webkit-any-link{
 
 //Sets the margins for the top 5 blog posts content
 .top5Posts{
-  margin: 3% 0 3% 0;
+  margin: 0 0 3% 0;
 
   & a{
     color: $siteGray;
@@ -382,4 +378,75 @@ span.mineralContent{
 //** Portfolio Page **
 #portfolioPage{
   margin: 0 0 5% 0;
+}
+
+//*************Media Queries****************/
+@media (max-width: 1024px) {
+
+  //removes sticky footer settings
+  #wrapper{
+    margin: 0;
+    padding: 0;
+  }
+
+  md-content{
+    margin: 0 0 5% 0;
+  }
+
+  //removes my face on about page.
+  #face{
+    display: none;
+  }
+
+  //removes footer
+  footer{
+    display:none;
+  }
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape){
+  #aboutTop{
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px){
+  //Fixes the nav up top.
+  nav{
+    overflow: hidden;
+    text-align: center;
+
+    .fa-3{
+      font-size: 2.1em;
+    }
+
+    .navIcons{
+      text-align: left;
+      padding: 0;
+    }
+  }
+
+  .aboutSection{
+    margin: 0 -25px;
+  }
+
+  #portfolioPage{
+    margin: 0 0 0 0;
+  }
+
+  .top5Posts ul {
+    margin: 10% 0 0;
+    padding: 0 0 0 0;
+  }
+
+  .col-sm-6.col-md-4{
+    margin: 5% 0 0 0;
+  }
+
+  .row{
+    margin: 0 -30px 0 -31px !important;
+  }
 }

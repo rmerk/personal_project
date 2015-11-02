@@ -1,14 +1,16 @@
 extends layout
 
 block content
+    div.col-md-12#pageHeading
     div.top5Posts
-        ul(ng-repeat='post in postlist | limitTo:5')
+        ul(ng-repeat='post in postlist |  limitTo:5')
             a(ng-href='/blogPosts/getPostById/{{post._id}}')
                 li.posts
                     p.title {{post.title}}
                     p.description {{post.description}}
                     p.created {{post.created | date:'fullDate'}}
-
         a.linkToArchives(href="/archives")
             i.fa.fa-long-arrow-right.fa-4.
                 Archives
+
+
