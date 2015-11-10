@@ -23,7 +23,7 @@ var User = require('./models/user');
 var app = express();
 
 //Setting up mongodb
-var mongoURI = 'mongodb://localhost:27017/personalDB';
+var mongoURI = 'mongodb://ryanm:nelson12@ds049624.mongolab.com:49624/personal_blog';
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.once('open', function(){
