@@ -64,7 +64,6 @@ myApp.controller('MainController',['$scope','$http', function($scope, $http) {
             });
     };
 
-    //calling getPosts() so blog posts load off the bat.
     $scope.getPosts();
     $scope.getArchives();
 

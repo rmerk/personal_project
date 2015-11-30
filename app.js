@@ -84,7 +84,7 @@ passport.use('local', new localStrat({
         });
     }));
 
-// adding the sass middleware
+//adding the sass middleware
 app.use(
     sassMiddleware({
       src: __dirname + '/sass',
